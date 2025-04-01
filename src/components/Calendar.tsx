@@ -1,16 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Calendar.css';
 
-const daysInMonth = 28; // February 2025
 const tasks = ['Behaviour', 'Homework', 'Chores'];
 
 const Calendar: React.FC = () => {
-  const startDayOffset = 5; // February 2025 starts on a Saturday (0-based index for days)
+  const [selectedMonth, setSelectedMonth] = useState(1); // February (0-based index)
+  const [selectedYear, setSelectedYear] = useState(2025);
+
+  const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
+  const startDayOffset = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7; // Adjust for Sunday as the first day
+
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  const years = Array.from({ length: 21 }, (_, i) => 2025 + i);
 
   return (
     <div className="calendar">
       <h1>Child’s Pocket Money Chart</h1>
-      <h2>February 2025</h2>
+      <div className="date-selectors">
+        <select
+          value={selectedMonth}
+          onChange={(e) => setSelectedMonth(Number(e.target.value))}
+        >
+          {months.map((month, index) => (
+            <option key={month} value={index}>
+              {month}
+            </option>
+          ))}
+        </select>
+        <select
+          value={selectedYear}
+          onChange={(e) => setSelectedYear(Number(e.target.value))}
+        >
+          {years.map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="calendar-grid">
         {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
           <div key={day} className="calendar-cell header-cell reduced-height">
