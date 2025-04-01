@@ -1,0 +1,55 @@
+.calendar {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+}
+
+.calendar h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.calendar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-cell {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  text-align: left;
+  min-height: 100px;
+}
+
+.header-cell {
+  font-weight: bold;
+  background-color: #e0e0e0;
+  text-align: center;
+}
+
+.header-cell.reduced-height {
+  min-height: 30px;
+  height: 30px; /* Adjust this value to match the sample */
+}
+
+.empty-cell {
+  background-color: transparent;
+  border: none;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
