@@ -4,8 +4,9 @@ import './Calendar.css';
 const tasks = ['Behaviour', 'Homework', 'Chores'];
 
 const Calendar: React.FC = () => {
-  const [selectedMonth, setSelectedMonth] = useState(1); // February (0-based index)
-  const [selectedYear, setSelectedYear] = useState(2025);
+  const currentDate = new Date();
+  const [selectedMonth, setSelectedMonth] = useState(currentDate.getMonth());
+  const [selectedYear, setSelectedYear] = useState(currentDate.getFullYear());
 
   const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
   const startDayOffset = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7; // Adjust for Sunday as the first day

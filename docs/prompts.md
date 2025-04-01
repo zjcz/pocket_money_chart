@@ -13,3 +13,5 @@ The 1st of the month starts on the wrong day. For example, Jan 2025 started on a
 > At this point  I realised the changelog.md file was not being updated as changes were being made.
 
 Update #file:changelog.md with the recent changes
+
+Currently the selected date when the page loads defaults to February 2025. Change this to default to the current date

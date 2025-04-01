@@ -11,3 +11,4 @@
 - Updated the `Calendar` component to align days horizontally and match the layout of the provided sample.
 - Adjusted styles in `Calendar.css` to ensure proper grid alignment and spacing.
 - Fixed the `Calendar` component to correctly calculate the first day of the month, ensuring accurate alignment of dates.
+- Updated the `Calendar` component to default to the current date instead of February 2025.
