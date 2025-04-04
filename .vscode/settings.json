@@ -1,0 +1,18 @@
+{
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+    "github.copilot.chat.codeGeneration.instructions": [
+      {
+        "text": "use TypeScript for all code. use camelCase for variable names, PascalCase for class names."
+      }
+    ],
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+      {
+        "text": "Use the format <type>: <description> for commit messages. Use the type 'fix' for bug fixes, 'feat' for new features, 'docs' for documentation, 'style' for styling, 'refactor' for refactoring, 'perf' for performance, 'test' for testing and 'chore' for other changes.  The type may also be determined by the current branch name"
+      }
+    ],
+    "github.copilot.chat.testGeneration.instructions": [
+      {
+        "text": "Use verbose class names that clearly state the test case. Use the AAA pattern for test cases. Arrange, Act, Assert."
+      }
+    ],
+  }

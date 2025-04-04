@@ -1,3 +1,7 @@
+> This is a list of prompts used to generate the code for the Pocket Money Chart web app. The prompts are used to guide the AI in generating specific features and functionality for the application. 
+
+> In addition to these prompts, I used the contents of /.github/copilot-instructions.md and /.vscode/settings.json to provide extra information to the AI.
+
 Create a react web app to show a monthly calendar view to track my childs pocket money. Use the attached image as a reference, which shows the chart for February 2025. Each day contains the tasks my child needs to complete to obtain their pocket money for that day.
 
 The calendar doesn't look quite right. Currently the days are listed vertically but should be horizontally. The days are listed vertically next to it, but again they should be laid out as defined in the #file:pocket money.jpg sample
