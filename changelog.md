@@ -1,3 +1,9 @@
+## [Unreleased]
+
+### Changed
+
+- Reduced padding between the date selectors and the calendar grid in `Calendar.css` for print-specific styles.
+
 ### Added
 
 - Created a `Calendar` component to display a monthly calendar view for tracking pocket money tasks.
@@ -22,3 +28,15 @@
 ### Changed
 
 - Updated the settings button to use a Bulma button with the text "Settings" and removed the icon.
+
+### Updated
+
+- Increased the font size of the title in the calendar to match the sample image.
+
+### Changes
+
+- Aligned the date selector dropdowns to the left in the `Calendar` component.
+- Added CSS for proper spacing and alignment of the dropdowns.
+- Centered the days of the week vertically in their header cells in the calendar.
+- Added print-specific styles to hide the settings button and replace dropdowns with selected text when printing.
+- Updated print-specific styles to hide dropdown arrows when printing.

@@ -1,23 +1,23 @@
 .calendar {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 20px;
+  margin: 10px;
 }
 
 .calendar h1 {
-  font-size: 24px;
+  font-size: 36px; /* Updated to match the sample image */
   margin-bottom: 5px;
 }
 
 .calendar h2 {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  gap: 3px;
 }
 
 .calendar-cell {
@@ -39,17 +39,54 @@
   height: 30px; /* Adjust this value to match the sample */
 }
 
+.calendar-cell.header-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .empty-cell {
   background-color: transparent;
   border: none;
 }
 
 .date {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 12px;  
+  margin-bottom: 2px;
 }
 
 input[type="checkbox"] {
   margin-right: 5px;
+}
+
+.date-selectors {
+  margin-bottom: 10px;
+}
+
+.date-selectors .select {
+  margin-right: 0.5rem;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: inline !important;    
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .select:not(.is-multiple):not(.is-loading)::after {
+    display: none !important;
+  }
+  .date-selectors {
+    margin-bottom: 5px; /* Reduced padding for print */
+  }
+}
+
+.print-only {
+  display: none;
 }
