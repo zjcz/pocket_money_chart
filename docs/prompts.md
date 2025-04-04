@@ -43,6 +43,9 @@ The arrow in the dropdowns is still visible when printing. Can this be hidden pl
   display: none !important;
 }
 ```
-Adjust the spacing of the elements so the page fills an A4 page when printed in landscape.  Currently the last row of the chart is printing on a second page.  Changes should only be applied when printing, the style is perfect when viewed on screen
 
-When printing, there is a large amount of padding between the date selectors and the calendar grid.  Please reduce this
+Adjust the spacing of the elements so the page fills an A4 page when printed in landscape. Currently the last row of the chart is printing on a second page. Changes should only be applied when printing, the style is perfect when viewed on screen
+
+When printing, there is a large amount of padding between the date selectors and the calendar grid. Please reduce this
+
+Currently the title of the page is set to "Child's Pocket Money Tracker" This should be the same as the title displayed on the page, which the user can specify in the settings

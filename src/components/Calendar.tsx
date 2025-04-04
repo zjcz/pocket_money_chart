@@ -17,6 +17,7 @@ const Calendar: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
     localStorage.setItem('title', title);
+    document.title = title; // Update the document title dynamically
   }, [tasks, title]);
 
   const saveSettings = () => {

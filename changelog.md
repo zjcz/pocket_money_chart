@@ -3,6 +3,7 @@
 ### Changed
 
 - Reduced padding between the date selectors and the calendar grid in `Calendar.css` for print-specific styles.
+- Updated the `Calendar` component to dynamically set the document title to match the page title specified by the user in the settings.
 
 ### Added
 
