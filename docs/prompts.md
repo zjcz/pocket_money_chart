@@ -25,3 +25,24 @@ Improve the styling of the popup dialog. Use the Bulma framework to style the di
 In the settings dialog, add the Save and Cancel buttons to a button group to add a spacing between the two
 
 Change the Settings button for a bulma button with just the text "Settings", remove the icon
+
+Improve the styling of the page. Increase the sizeof the font for the title (Currently set to Child's Pocket Money Chart) to match the #file:pocket money.jpg sample image.
+
+Left align the date selector dropdowns
+
+The days of the week should be centered vertically in their header cells. Currently they are aligned to the bottom of the cell
+
+When the page is printed, the settings button should be hidden and the date selector dropdowns should be replaced with their selected text
+
+The arrow in the dropdowns is still visible when printing. Can this be hidden please
+
+> Copilot still couldn't remove the arrows from the dropdowns. I manually added the following CSS to hide the arrow in the dropdowns when printing:
+
+```css
+.select:not(.is-multiple):not(.is-loading)::after {
+  display: none !important;
+}
+```
+Adjust the spacing of the elements so the page fills an A4 page when printed in landscape.  Currently the last row of the chart is printing on a second page.  Changes should only be applied when printing, the style is perfect when viewed on screen
+
+When printing, there is a large amount of padding between the date selectors and the calendar grid.  Please reduce this

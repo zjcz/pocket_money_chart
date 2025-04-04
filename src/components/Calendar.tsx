@@ -39,29 +39,37 @@ const Calendar: React.FC = () => {
     <div className="calendar">
       <div className="header">
         <h1>{title}</h1>
-        <button className="button is-primary" onClick={() => setIsSettingsOpen(true)}>Settings</button>
+        <button className="button is-primary no-print" onClick={() => setIsSettingsOpen(true)}>Settings</button>
       </div>
-      <div className="date-selectors">
-        <select
-          value={selectedMonth}
-          onChange={(e) => setSelectedMonth(Number(e.target.value))}
-        >
-          {months.map((month, index) => (
-            <option key={month} value={index}>
-              {month}
-            </option>
-          ))}
-        </select>
-        <select
-          value={selectedYear}
-          onChange={(e) => setSelectedYear(Number(e.target.value))}
-        >
-          {years.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </select>
+      <div className="date-selectors is-flex is-justify-content-flex-start">
+        <div className="select">
+          <span className="print-only">{months[selectedMonth]}</span>
+          <select
+            className="no-print"
+            value={selectedMonth}
+            onChange={(e) => setSelectedMonth(Number(e.target.value))}
+          >
+            {months.map((month, index) => (
+              <option key={month} value={index}>
+                {month}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="select ml-2">
+          <span className="print-only">{selectedYear}</span>
+          <select
+            className="no-print"
+            value={selectedYear}
+            onChange={(e) => setSelectedYear(Number(e.target.value))}
+          >
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div className="calendar-grid">
         {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
