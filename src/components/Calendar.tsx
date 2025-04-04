@@ -1,15 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import 'bulma/css/bulma.min.css';
 import './Calendar.css';
 
-const tasks = ['Behaviour', 'Homework', 'Chores'];
+const defaultTasks = ['Behaviour', 'Homework', 'Chores'];
+const defaultTitle = "Child's Pocket Money Tracker";
 
 const Calendar: React.FC = () => {
-  const currentDate = new Date();
-  const [selectedMonth, setSelectedMonth] = useState(currentDate.getMonth());
-  const [selectedYear, setSelectedYear] = useState(currentDate.getFullYear());
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const [tasks, setTasks] = useState<string[]>(() => JSON.parse(localStorage.getItem('tasks') || JSON.stringify(defaultTasks)));
+  const [title, setTitle] = useState(() => localStorage.getItem('title') || defaultTitle);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [newTitle, setNewTitle] = useState(title);
+  const [newTasks, setNewTasks] = useState(tasks.join(', '));
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('title', title);
+  }, [tasks, title]);
+
+  const saveSettings = () => {
+    setTitle(newTitle);
+    setTasks(newTasks.split(',').map(task => task.trim()).filter(task => task));
+    setIsSettingsOpen(false);
+  };
 
   const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-  const startDayOffset = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7; // Adjust for Sunday as the first day
+  const startDayOffset = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7;
 
   const months = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -20,7 +37,10 @@ const Calendar: React.FC = () => {
 
   return (
     <div className="calendar">
-      <h1>Child’s Pocket Money Chart</h1>
+      <div className="header">
+        <h1>{title}</h1>
+        <button className="button is-primary" onClick={() => setIsSettingsOpen(true)}>Settings</button>
+      </div>
       <div className="date-selectors">
         <select
           value={selectedMonth}
@@ -64,6 +84,47 @@ const Calendar: React.FC = () => {
           </div>
         ))}
       </div>
+      {isSettingsOpen && (
+        <div className="modal is-active">
+          <div className="modal-background" onClick={() => setIsSettingsOpen(false)}></div>
+          <div className="modal-card">
+            <header className="modal-card-head">
+              <p className="modal-card-title">Settings</p>
+              <button className="delete" aria-label="close" onClick={() => setIsSettingsOpen(false)}></button>
+            </header>
+            <section className="modal-card-body">
+              <div className="field">
+                <label className="label">Title</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    value={newTitle}
+                    onChange={(e) => setNewTitle(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <label className="label">Tasks (comma-separated)</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    value={newTasks}
+                    onChange={(e) => setNewTasks(e.target.value)}
+                  />
+                </div>
+              </div>
+            </section>
+            <footer className="modal-card-foot">
+              <div className="buttons">
+                <button className="button is-success" onClick={saveSettings}>Save</button>
+                <button className="button" onClick={() => setIsSettingsOpen(false)}>Cancel</button>
+              </div>
+            </footer>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
