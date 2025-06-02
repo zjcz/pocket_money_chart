@@ -53,3 +53,11 @@ Adjust the spacing of the elements so the page fills an A4 page when printed in 
 When printing, there is a large amount of padding between the date selectors and the calendar grid. Please reduce this
 
 Currently the title of the page is set to "Child's Pocket Money Tracker" This should be the same as the title displayed on the page, which the user can specify in the settings
+
+Add some small images / icons / graphics / etc to make the calendar more child friendly.  This could include for example, different images based on the month of the year to appear seasonal.  The images should be black and white so the child can colour them in themselves if the page is printed.  The images should appear to the right of the childs name.
+
+Remove the border around the outside of the images
+
+Increase the size of the images by 50%
+
+> I have manually changed `index.css` to align the calendar to the top of the screen rather than center.  This is a personal preference and was a quick change rather than asking AI to do it.
