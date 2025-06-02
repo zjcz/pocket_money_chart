@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bulma/css/bulma.min.css';
 import './Calendar.css';
+import { seasonalImages } from '../assets/seasonalImages';
 
 const defaultTasks = ['Behaviour', 'Homework', 'Chores'];
 const defaultTitle = "Child's Pocket Money Tracker";
@@ -36,11 +37,32 @@ const Calendar: React.FC = () => {
 
   const years = Array.from({ length: 21 }, (_, i) => 2025 + i);
 
+  // Helper to render SVG markup as React
+  const renderSvg = (svg: string, key?: string, style: React.CSSProperties = {}) => (
+    <span
+      key={key}
+      className="calendar-svg-icon"
+      style={{ display: 'inline-block', verticalAlign: 'middle', ...style }}
+      dangerouslySetInnerHTML={{ __html: svg }}
+    />
+  );
+
+  // Get the SVG for the current month
+  const monthSvg = seasonalImages[months[selectedMonth]];
+
   return (
     <div className="calendar">
       <div className="header">
-        <h1>{title}</h1>
-        <button className="button is-primary no-print" onClick={() => setIsSettingsOpen(true)}>Settings</button>
+        <h1 style={{ display: 'inline-block', verticalAlign: 'middle' }}>{title}</h1>
+        {/* Seasonal SVG to the right of the child's name/title */}
+        {monthSvg && (
+          <span className="calendar-svg-rightofname" style={{ marginLeft: 16, verticalAlign: 'middle' }}>
+            {renderSvg(monthSvg, 'rightofname')}
+          </span>
+        )}
+        <button className="button is-primary no-print" style={{ marginLeft: 16 }} onClick={() => setIsSettingsOpen(true)}>
+          Settings
+        </button>
       </div>
       <div className="date-selectors is-flex is-justify-content-flex-start">
         <div className="select">

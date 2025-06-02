@@ -18,6 +18,9 @@
 - Styled the settings button and popup dialog for a user-friendly experience.
 - Styled the settings button and popup dialog using the Bulma framework for a more polished and user-friendly appearance.
 - Grouped the Save and Cancel buttons in the settings dialog using Bulma's `buttons` class for better spacing.
+- Added black and white SVG images for each month (for coloring) to `seasonalImages.ts`.
+- Updated `Calendar.tsx` to render the seasonal SVG to the right of the child's name/title in the header, before the settings button.
+- Updated `Calendar.css` to style the SVG icon for proper alignment and print friendliness.
 
 ### Fixed
 

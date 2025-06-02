@@ -67,6 +67,19 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
+.calendar-svg-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.calendar-svg-rightofname {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 @media print {
   .no-print {
     display: none !important;
@@ -84,6 +97,10 @@ input[type="checkbox"] {
   }
   .date-selectors {
     margin-bottom: 5px; /* Reduced padding for print */
+  }
+  .calendar-svg-icon {
+    width: 28px;
+    height: 28px;
   }
 }
 
